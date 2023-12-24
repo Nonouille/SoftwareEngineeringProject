@@ -1,0 +1,32 @@
+<h2 style="margin-top:15px;margin-bottom: 15px;text-align: center">Student Details</h2>
+<div style="display: flex; justify-content: center; align-items: center;">
+    <table style="width: 500px">
+        <tr>
+            <td><strong>Nom:</strong></td>
+            <td><input type="text" id="firstName" value="{{student.Nom}}"></td>
+        </tr>
+        <tr>
+            <td><strong>Prénom:</strong></td>
+            <td><input type="text" id="lastName" value="{{student.Prenom}}"></td>
+        </tr>
+        <tr>
+            <td><strong>Adresse:</strong></td>
+            <td><input type="text" id="address" value="{{student.Adresse}}"></td>
+        </tr>
+        <tr>
+            <td><strong>Mail:</strong></td>
+            <td><input type="text" id="email" value="{{student.Mail}}"></td>
+        </tr>
+        <tr>
+            <td><strong>Majeur:</strong></td>
+            <td><input type="text" id="major" value="{{student.Majeur}}"></td>
+        </tr>
+        <tr>
+            <td><strong>Année:</strong></td>
+            <td><input type="number" id="year" max="5" min="1" value="{{student.Year}}"></td>
+        </tr>
+    </table>
+</div>
+<div style="display: flex; justify-content: center; align-items: center;">
+    <button (click)="UpdateInfo()">Update</button>
+</div>

@@ -1,0 +1,14 @@
+<div class="courses" style="margin: 500 0 0 0">
+  <div *ngFor="let coursItem of cours">
+    <h2>{{ coursItem.Nom }}</h2>
+    <p>Replays:</p>
+    <ul>
+      <li *ngFor="let replay of coursItem.Replays">
+        <a href="{{ replay }}" target="_blank">{{ replay }}</a>
+      </li>
+    </ul>
+    <p>Contact du professeur: {{ coursItem.ContactProf }}</p>
+    <p>Coefficient: {{ coursItem.Coefficient }}</p>
+    <hr>
+  </div>
+</div>

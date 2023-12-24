@@ -1,0 +1,19 @@
+<h2 style="margin-top:15px;margin-bottom: 15px; text-align: center">Students in your class : </h2>
+<div style="display: flex; justify-content: center; align-items: center;">
+  <div>
+    <div *ngFor="let student of students" style="display: flex; flex-direction: row; align-items: center; margin-bottom: 20px;">
+      <div style=" width: 250px;">
+        <p style="margin-bottom: 5px;"><b>{{ student.Nom }}</b></p>
+      </div>
+      <div style="width: 250px">
+        <p>{{ student.Prenom }}</p>
+      </div>
+      <button style="width: 75px" (click)="navigateToEditGrades(student.ID)">Edit</button>
+      <hr style="flex: 1; margin: 0;">
+    </div>
+    <button style="width:125px;
+            right: 0;
+            margin-right: 620px;
+            position: absolute">Add a new student</button>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+/* Font styles */
+body {
+  font-family: sans-serif; /* Use a sans-serif font for a modern look */
+}
+
+.header h1 {
+  font-size: 30px; /* Adjust the font size for better readability */
+  font-weight: 600; /* A balance between readability and impact */
+  height: auto;
+}
+
+.courses {
+  font-size: 16px; /* Adjust the font size for better readability */
+  font-weight: 400; /* A lighter weight for the main content area */
+}
+
+/* Color enhancements */
+.header {
+  background-color: #CF1052; /* Main color */
+}
+
+.footer {
+  background-color: #333333; /* Secondary color */
+}
+
+.home-button {
+  color: #F05B41; /* Secondary color for links */
+}
+
+.home-button:hover {
+  background-color: #F05B41; /* Apply hover effect using the secondary color */
+  color: #fff; /* Contrasting text color for better visibility */
+  padding: 5px 10px; /* Add subtle padding to enhance the hover effect */
+}
+
+/* Spacing and layout optimizations */
+.header {
+  padding: 20px 0; /* Add spacing between the header and the navigation */
+}
+
+.courses {
+  margin: 0 auto; /* Center the content horizontally */
+  width: 80%; /* Adjust the width as needed */
+}
+
+nav,
+footer {
+  padding: 10px 0; /* Add spacing between the navigation and footer */
+}
+
+nav ul {
+  list-style-type: none; /* Remove default bullet points */
+  padding: 0 50px 0 50px; /* Remove default margins */
+  display: flex; /* Use flexbox for responsive navigation */
+  justify-content: space-between; /* Center links horizontally */
+}
+
+nav ul li {
+  margin: 0 10px; /* Add spacing between links */
+}
+
+/* Hover effects for navigation links */
+nav ul li a {
+  font-size: 18px;
+  text-decoration: none;
+  color: #fff; /* White text for better visibility */
+}
+
+nav ul li a:hover {
+  background-color: #CF1052; /* Apply hover effect using the main color */
+}
+
+pres  {
+  margin-bottom: 30px;
+}
