@@ -2,23 +2,8 @@ import {Component, OnInit, OnChanges, SimpleChanges} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Injectable} from "@angular/core";
 import {studentService} from "../student.service";
+import {student} from "../student.service";
 
-interface student {
-  Nom :string,
-  Prenom: string,
-  id: number,
-  Adresse: string,
-  Mail : string,
-  Majeur : string,
-  Year : number,
-  Grades : {
-    Database_Management: string,
-    Fonctions_et_Suite: string,
-    Transfert_Thermique: string,
-    Node_React: string,
-    OS_Architecture: string
-  }
-}
 
 @Component({
   selector: 'app-student-detail',
@@ -56,7 +41,8 @@ export class StudentDetailComponent implements OnInit,OnChanges{
 
         this.studentService.updateStudentDetails(this.student);
         console.log("updateDetails button clicked");
-        //this.router.navigate(['/student']);
+        window.alert("Student details updated");
+        this.router.navigate(['/student']);
     }
 
   ngOnInit(): void {

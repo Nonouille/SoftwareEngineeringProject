@@ -1,5 +1,5 @@
 <div class="container">
-    <h2>Anthony's Grades</h2>
+    <h2>{{student.Prenom}}'s Grades</h2>
     <table>
         <thead>
         <tr>
@@ -10,23 +10,23 @@
         <tbody>
         <tr>
             <td>Database Management</td>
-            <td>A</td>
+            <td>{{student.Grades.Database_Management}}</td>
         </tr>
         <tr>
             <td>Fonctions et Suite</td>
-            <td>B+</td>
+            <td>{{student.Grades.Fonctions_et_Suite}}</td>
         </tr>
         <tr>
             <td>Transfert Thermique</td>
-            <td>A-</td>
+            <td>{{student.Grades.Transfert_Thermique}}</td>
         </tr>
         <tr>
             <td>Node & React</td>
-            <td>C-</td>
+            <td>{{student.Grades.Node_React}}</td>
         </tr>
         <tr>
             <td>OS Architecture</td>
-            <td>B+</td>
+            <td>{{student.Grades.OS_Architecture}}</td>
         </tr>
         <!-- More rows can be added here -->
         </tbody>

@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpContextToken} from "@angular/common/http";
 import {Observable, catchError, tap, throwError} from "rxjs";
 
-interface student {
+export interface student {
   Nom :string,
   Prenom: string,
   id: number,

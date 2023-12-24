@@ -1,24 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {studentService} from "../student.service";
 import {Router} from "@angular/router";
-
-
-interface student {
-  Nom :string,
-  Prenom: string,
-  id: number,
-  Adresse: string,
-  Mail : string,
-  Majeur : string,
-  Year : number,
-  Grades : {
-    Database_Management: string,
-    Fonctions_et_Suite: string,
-    Transfert_Thermique: string,
-    Node_React: string,
-    OS_Architecture: string
-  }
-}
+import {student} from "../student.service";
 
 @Component({
   selector: 'app-student',
