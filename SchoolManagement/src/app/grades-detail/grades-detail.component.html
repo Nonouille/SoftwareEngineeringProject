@@ -7,31 +7,31 @@
             <th>Grade</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody *ngFor="let grade of student.Grades | keyvalue" >
         <tr>
-            <td>Database Management</td>
-            <td>{{student.Grades.Database_Management}}</td>
+            <td>{{grade.key}}</td>
+            <td>{{grade.value}}</td>
         </tr>
-        <tr>
-            <td>Fonctions et Suite</td>
-            <td>{{student.Grades.Fonctions_et_Suite}}</td>
-        </tr>
-        <tr>
-            <td>Transfert Thermique</td>
-            <td>{{student.Grades.Transfert_Thermique}}</td>
-        </tr>
-        <tr>
-            <td>Node & React</td>
-            <td>{{student.Grades.Node_React}}</td>
-        </tr>
-        <tr>
-            <td>OS Architecture</td>
-            <td>{{student.Grades.OS_Architecture}}</td>
-        </tr>
-        <!-- More rows can be added here -->
         </tbody>
     </table>
-    <div style="padding-left: 620px; padding-top: 15px" >
-        <button style="padding: 4px">Add a new note</button>
+    <div style="padding-left: 15px; padding-top: 15px" >
+      <select style="margin-right: 265px" [(ngModel)]="selectedClass">
+        <option value="">Select Class</option>
+        <option value="Software_Engineering">Software Engineering</option>
+        <option value="Securing_Embedded_Software">Securing Embedded Software</option>
+        <option value="Operating_System">Operating System</option>
+        <option value="Espace_Vectoriels">Espaces Vectoriels</option>
+      </select>
+      <select style="margin-right: 50px" [(ngModel)]="selectedGrade">
+        <option value="">Select Grade</option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+        <option value="E">E</option>
+        <option value="F">F</option>
+      </select>
+
+      <button [disabled]="!selectedClass || !selectedGrade" style="padding: 4px" (click)="postGrade()">Add a new note</button>
     </div>
 </div>

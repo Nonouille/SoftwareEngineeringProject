@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {student} from "../student.service";
 import {studentService} from "../student.service";
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -14,7 +15,7 @@ import {studentService} from "../student.service";
 export class GradesDetailComponent implements OnInit{
   student: student = {} as student;
   studentId: number | undefined;
-  constructor(private route: ActivatedRoute, private studentService: studentService, private router : Router) {
+  constructor(private route: ActivatedRoute, private studentService: studentService, private router : Router, private location : Location) {
   }
   ngOnInit(): void {
     // Retrieve the ID parameter from the URL
@@ -33,4 +34,14 @@ export class GradesDetailComponent implements OnInit{
       }
     });
   }
+  selectedGrade: string = '';
+  selectedClass: string = '';
+
+  postGrade()
+  {
+    this.studentService.postNewGrade(this.student.id,this.selectedClass, this.selectedGrade);
+    window.alert("New note added");
+    window.location.reload();
+  }
+  protected readonly Object = Object;
 }

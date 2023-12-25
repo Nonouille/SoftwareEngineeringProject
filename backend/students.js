@@ -455,7 +455,6 @@ app.get('/api/get-students/:id', function (req, res) {
     }
 });
 app.put('/api/modify-student/:id', function (req, res) {
-    console.log("entered put request");
     var studentId = parseInt(req.params.id); // Extract the student ID from the request parameters
     var student = students.find(function (student) { return student.id === studentId - 1; }); // Find the index of the student with the given ID
     if (student.id !== undefined) {
@@ -469,6 +468,23 @@ app.put('/api/modify-student/:id', function (req, res) {
     }
     else {
         res.status(404).send({ message: 'Student not found' }); // Return a 404 status if student is not found
+    }
+});
+app.post("/api/post-grades/:id", function (req, res) {
+    var studentId = parseInt(req.params.id); // Extract the student ID from the request parameters
+    var student = students.find(function (student) { return student.id === studentId - 1; }); // Find the index of the student with the given ID
+    if (student.id !== undefined) {
+        var _a = req.body, gradeSubject = _a.gradeSubject, grade = _a.grade;
+        if (gradeSubject && grade) {
+            students[studentId - 1].Grades[gradeSubject] = grade;
+            res.status(200).send({ message: 'Grade updated successfully', student: students[studentId - 1] });
+        }
+        else {
+            res.status(400).send({ message: 'Invalid request, missing grade or grade subject' });
+        }
+    }
+    else {
+        res.status(404).send({ message: 'Student not found' });
     }
 });
 var idGenerator = 25;

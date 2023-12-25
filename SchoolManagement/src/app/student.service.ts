@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpContextToken} from "@angular/common/http";
-import {Observable, catchError, tap, throwError} from "rxjs";
+import {Observable, catchError, tap, throwError, Subscription} from "rxjs";
 
 export interface student {
   Nom :string,
@@ -54,6 +54,12 @@ export class studentService{
   updateStudentDetails(modifiedStudent: student): Subscription {
     let id = modifiedStudent.id;
     return this.http.put<student>(`/api/modify-student/${id}`,modifiedStudent).subscribe(data => modifiedStudent = data); // Send a PUT request with the updated student data
+  }
+
+  postNewGrade(id: number, gradeSubject: string, grade: string): Subscription {
+    let body: { gradeSubject: string; grade: string; } = { gradeSubject, grade };
+    // @ts-ignore
+    return this.http.post(`/api/post-grades/${id}`,body).subscribe(data => body = data); // Send a PUT request with the updated student data;
   }
 
 
