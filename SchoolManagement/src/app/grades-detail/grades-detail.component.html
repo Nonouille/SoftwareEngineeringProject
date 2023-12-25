@@ -17,10 +17,7 @@
     <div style="padding-left: 15px; padding-top: 15px" >
       <select style="margin-right: 265px" [(ngModel)]="selectedClass">
         <option value="">Select Class</option>
-        <option value="Software_Engineering">Software Engineering</option>
-        <option value="Securing_Embedded_Software">Securing Embedded Software</option>
-        <option value="Operating_System">Operating System</option>
-        <option value="Espace_Vectoriels">Espaces Vectoriels</option>
+        <option *ngFor="let class of this.Classes" value="{{class}}">{{class}}</option>
       </select>
       <select style="margin-right: 50px" [(ngModel)]="selectedGrade">
         <option value="">Select Grade</option>

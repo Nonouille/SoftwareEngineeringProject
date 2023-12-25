@@ -34,14 +34,29 @@ export class GradesDetailComponent implements OnInit{
       }
     });
   }
+
+  Classes : string[] =
+  [
+      "Software_Engineering",
+      "Securing_Embedded_Software",
+      "Operating_System",
+      "Espace_Vectoriels"
+  ];
+
   selectedGrade: string = '';
   selectedClass: string = '';
 
   postGrade()
   {
-    this.studentService.postNewGrade(this.student.id,this.selectedClass, this.selectedGrade);
-    window.alert("New note added");
-    window.location.reload();
+      const classIndex = this.Classes.indexOf(this.selectedClass);
+      console.log("Selected Class", this.selectedClass)
+      console.log('Class Index ', classIndex);
+      if (classIndex !== -1) {
+          this.Classes.splice(classIndex, 1); // Remove the selectedClass from the Classes array
+      }
+      this.studentService.postNewGrade(this.student.id,this.selectedClass, this.selectedGrade);
+      window.alert("New note added");
+      //window.location.reload();
   }
   protected readonly Object = Object;
 }
