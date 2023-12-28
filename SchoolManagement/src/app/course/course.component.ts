@@ -1,5 +1,13 @@
 import { Component } from '@angular/core';
-import {Router} from "@angular/router";
+
+interface ClassInfo {
+  className: string;
+  lesson: {
+      lessonName: string,
+      date: string,
+      time: string
+  }[]
+}
 
 @Component({
   selector: 'app-course',
@@ -8,36 +16,85 @@ import {Router} from "@angular/router";
 })
 
 export class CourseComponent {
-  cours= [
-    {
-      Nom: 'Transfert Thermique',
-      Replays: ['lien 1', 'lien 2'],
-      ContactProf: 'DUPONT Jean : Jean.Dupont@edu.devinci.fr',
-      Coefficient: 2
+    times: string[] = [
+        '9:00 AM',
+        '10:00 AM',
+        '11:00 AM',
+        '12:00 PM',
+        '1:00 PM',
+        '2:00 PM',
+        '3:00 PM',
+        '4:00 PM',
+        '5:00 PM',
+    ];
+    dates: string[] = [
+        '2023-12-25',
+        '2023-12-26',
+        '2023-12-27',
+        '2023-12-28',
+        '2023-12-29',
+        '2023-12-30',
+    ];
+
+    classes: ClassInfo[] = [
+    {   className: 'Software_Engineering',
+        lesson : [
+            {   lessonName : 'CM',
+                date: '2023-12-25',
+                time: '10:00 AM' },
+            {   lessonName : 'TD',
+                date: '2023-12-27',
+                time: '04:00 PM' }
+        ]
     },
-    {
-      Nom: 'Fonctions et Suite',
-      Replays: ['lien 1', 'lien 2'],
-      ContactProf: 'LEFEVRE Marie: Marie.Lefevre@edu.devinci.fr',
-      Coefficient: 2
+    {   className: 'Securing_Embedded_Software',
+        lesson : [
+            {   lessonName : 'CM',
+                date: '2023-12-26',
+                time: '10:00 AM' },
+            {   lessonName : 'TD',
+                date: '2023-12-28',
+                time: '04:00 PM' }
+        ]
     },
-    {
-      Nom: 'Database Management',
-      Replays: ['lien 1', 'lien 2'],
-      ContactProf: 'DUBOIS Pierre: Pierre.Dubois@edu.devinci.fr',
-      Coefficient: 2
+    {   className: 'Operating_System',
+        lesson : [
+            {   lessonName : 'CM',
+                date: '2023-12-27',
+                time: '10:00 AM' },
+            {   lessonName : 'TD',
+                date: '2023-12-29',
+                time: '04:00 PM' }
+        ]
     },
-    {
-      Nom: 'Node & React',
-      Replays: ['lien 1', 'lien 2'],
-      ContactProf: 'MARTIN Sophie: Sophie.Martin@edu.devinci.fr',
-      Coefficient: 2
+    {   className: 'Espace_Vectoriels',
+        lesson : [
+            {   lessonName : 'CM',
+                date: '2023-12-28',
+                time: '10:00 AM' },
+            {   lessonName : 'TD',
+                date: '2023-12-30',
+                time: '04:00 PM' }
+        ]
     },
-    {
-      Nom: 'OS Architecture',
-      Replays: ['lien 1', 'lien 2'],
-      ContactProf: 'DELACROIX Luc: Luc.Delacroix@edu.devinci.fr',
-      Coefficient: 2
-    }
   ];
+
+  selectedClasses: ClassInfo[] = [];
+
+  toggleSelection(classInfo: ClassInfo) {
+    const index = this.selectedClasses.findIndex(c => c.className === classInfo.className);
+    if (index === -1) {
+      this.selectedClasses.push(classInfo);
+    } else {
+      this.selectedClasses.splice(index, 1);
+    }
+  }
+    calculateTopOffset(time: string): number {
+        const [hour, minute] = time.split(':').map(Number);
+        const totalMinutes = hour * 60 + minute;
+        // Assuming each time slot is 30 minutes, adjust the multiplier as needed
+        const timeSlotHeight = 60;
+        return (totalMinutes / 60) * timeSlotHeight;
+    }
+
 }

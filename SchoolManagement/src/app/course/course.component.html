@@ -1,14 +1,28 @@
-<div class="courses" style="margin: 500 0 0 0">
-  <div *ngFor="let coursItem of cours">
-    <h2>{{ coursItem.Nom }}</h2>
-    <p>Replays:</p>
-    <ul>
-      <li *ngFor="let replay of coursItem.Replays">
-        <a href="{{ replay }}" target="_blank">{{ replay }}</a>
-      </li>
-    </ul>
-    <p>Contact du professeur: {{ coursItem.ContactProf }}</p>
-    <p>Coefficient: {{ coursItem.Coefficient }}</p>
-    <hr>
+<div *ngFor="let singleClass of classes" (click)="toggleSelection(singleClass)">
+  {{ singleClass.className }}
+</div>
+
+<div *ngIf="selectedClasses.length > 0">
+  <div class="agenda-container">
+    <div class="time-column">
+      <div class="time-slot" *ngFor="let time of times">
+        {{ time }}
+      </div>
+    </div>
+    <div *ngFor="let selectedClass of selectedClasses" class="day-column">
+      <div class="class-name">{{ selectedClass.className }}</div>
+      <div class="lesson" *ngFor="let lesson of selectedClass.lesson">
+        <div class="lesson-info" [style.marginTop.px]="calculateTopOffset(lesson.time)">
+          <div class="lesson-time">{{ lesson.time }}</div>
+          <div class="lesson-details">
+            <div class="lesson-name">{{ lesson.lessonName }}</div>
+            <div class="lesson-date">{{ lesson.date }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
+
+

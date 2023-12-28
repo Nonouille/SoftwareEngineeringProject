@@ -1,0 +1,75 @@
+/* Wrapper for the selected classes */
+.agenda-container {
+  display: flex;
+  margin-top: 20px;
+}
+
+/* Left column for time slots */
+.time-column {
+  min-width: 100px;
+  border-right: 1px solid #ccc;
+  padding-right: 10px;
+}
+
+.time-slot {
+  padding: 5px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Right column for schedule */
+.schedule {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+/* Each day column */
+.day-column {
+  flex-grow: 1;
+  border-right: 1px solid #ccc;
+  padding: 10px;
+}
+
+/* Class name section */
+.class-name {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Each lesson section */
+.lesson-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.lesson-time {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.lesson-name {
+  font-weight: bold;
+}
+
+.lesson-date {
+  color: #888;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .agenda-container {
+    flex-direction: column;
+  }
+
+  .time-column {
+    border-right: none;
+    padding-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .day-column {
+    border-right: none;
+    padding-right: 0;
+  }
+}
