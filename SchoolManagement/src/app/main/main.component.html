@@ -1,17 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 50vh;
+      margin: 0;
+    }
+
+    #login {
+      width: 300px;
+      padding: 20px;
+      border: 1px solid #ccc;
+    }
+  </style>
+  <title>Your Page Title</title>
+</head>
+<body>
+
 <form id="login">
-    <div class="input">
-        <label>Username</label>
-        <input type="text" name="username" [(ngModel)]="username">
-    </div>
-    <div class="input">
-        <label>Password</label>
-        <input type="password" name="password" [(ngModel)]="password">
-    </div>
-    <div class="input">
-        <input type="submit" value="Login" (click)="LoginUser()" >
-    </div>
-    <div>
-        <a style="color:#FF0000;display: none" id="erroruser">Username not found, please try again.</a>
-        <a style="color:#FF0000;display: none" id="errorpass">Password not found, please try again.</a>
-    </div>
+  <div class="input">
+    <label>Username</label>
+    <input type="text" name="username" [(ngModel)]="username">
+  </div>
+  <div class="input">
+    <label>Password</label>
+    <input type="password" name="password" [(ngModel)]="password">
+  </div>
+  <div class="input">
+    <input type="submit" value="Login" (click)="LoginUser()">
+  </div>
+  <div>
+    <a style="color:#FF0000;display: none" id="erroruser">Username not found, please try again.</a>
+    <a style="color:#FF0000;display: none" id="errorpass">Password not found, please try again.</a>
+  </div>
 </form>
+
+</body>
+</html>

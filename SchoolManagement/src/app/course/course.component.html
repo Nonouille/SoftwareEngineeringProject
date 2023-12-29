@@ -1,7 +1,10 @@
-<div *ngFor="let singleClass of classes" (click)="toggleSelection(singleClass)">
-  {{ singleClass.className }}
-</div>
+<div class="centered-container">
+  <h2 style="margin-top: 15px; margin-bottom: 15px; text-align: center">Your courses :</h2>
 
+  <div *ngFor="let singleClass of classes" (click)="toggleSelection(singleClass)">
+  {{ singleClass.className }}
+  </div>
+</div>
 <div *ngIf="selectedClasses.length > 0">
   <div class="agenda-container">
     <div class="time-column">

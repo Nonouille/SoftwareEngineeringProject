@@ -4,6 +4,14 @@
   margin-top: 20px;
 }
 
+.centered-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrer les éléments horizontalement */
+  justify-content: center; /* Centrer les éléments verticalement */
+  height: 25vh; /* Utiliser 100% de la hauteur de la vue */
+}
+
 /* Left column for time slots */
 .time-column {
   min-width: 100px;

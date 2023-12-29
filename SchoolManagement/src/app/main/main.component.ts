@@ -27,7 +27,7 @@ export class MainComponent implements OnInit{
       if (this.username == this.ID[0][i]) {
         if (this.password == this.ID[1][i]) {
           //We pass the login & navigate to home page.
-          this.router.navigate(['/'], {queryParams: {data: this.username}}).then(r => {
+          this.router.navigate(['/course'], {queryParams: {data: this.username}}).then(r => {
           })
           // @ts-ignore
           document.getElementById("login").style.display = "none";
